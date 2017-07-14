@@ -1,0 +1,37 @@
+{
+  "name": "resto",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.4",
+    "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "redux": "^3.7.1",
+    "sass-loader": "^6.0.6",
+    "string-replace-loader": "^1.3.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.1.0",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "scripts": {
+    "dev": "rm -rf ./dist && run-p watch:server watch:webpack",
+    "watch:server": "nodemon ./dist/server",
+    "watch:webpack": "webpack --config ./config/webpack.dev.js --watch",
+    "debug": "rm -rf ./dist && webpack --config ./config/webpack.dev.js && echo \"**** Open chrome browser and go to chrome://inspect to debug. ****\" && node --inspect ./dist/server"
+  }
+}
