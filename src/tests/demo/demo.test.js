@@ -9,7 +9,7 @@ test('Test rendering the demo component', () => {
     const store = configureStore()(reduxState);
     const component = renderer.create(
         <Provider store={store}>
-            <Demo>Facebook</Demo>
+            <Demo />
         </Provider>
     );
 
