@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const nodeExternals = require('webpack-node-externals');
 const jsLoader = require('./loaders/js-loader');
 const scssLoader = require('./loaders/scss-loader');
@@ -7,6 +8,9 @@ const eslintLoader = require('./loaders/eslint-loader');
 const extractScssPlugin = require('./plugins/extract-scss-plugin');
 const htmlPlugin = require('./plugins/html-plugin');
 const copyPublicFilePlugin = require('./plugins/copy-public-files');
+const scopeHoistingPlugin = new webpack.optimize.ModuleConcatenationPlugin();
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const client = {
     entry: {
@@ -16,7 +20,7 @@ const client = {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, '../dist/client/public')
     },
-    devtool: 'inline-source-map',
+    devtool: isProd ? '' : 'inline-source-map',
     module: {
         rules: [
             jsLoader,
@@ -27,7 +31,8 @@ const client = {
     plugins: [
         copyPublicFilePlugin,
         extractScssPlugin,
-        htmlPlugin
+        htmlPlugin,
+        scopeHoistingPlugin
     ]
 };
 
@@ -45,7 +50,7 @@ const server = {
         filename: '[name].js',
         path: path.resolve(__dirname, '../dist')
     },
-    devtool: 'inline-source-map',
+    devtool: isProd ? '' : 'inline-source-map',
     module: {
         rules: [
             jsLoader,
@@ -53,7 +58,7 @@ const server = {
             removeAssetLoader,
         ]
     },
-    plugins: []
+    plugins: [scopeHoistingPlugin]
 };
 
 module.exports = [client, server];

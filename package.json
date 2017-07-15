@@ -48,8 +48,9 @@
   "scripts": {
     "dev": "rm -rf ./dist && run-p watch:webpack watch:server",
     "watch:server": "sleep 5 && nodemon ./dist/server",
-    "watch:webpack": "webpack --config ./config/webpack.dev.js --display errors-only --watch",
+    "watch:webpack": "webpack --config ./config/webpack.config.js --display errors-only --watch",
     "debug": "rm -rf ./dist && webpack --config ./config/webpack.dev.js && echo \"**** Open chrome browser and go to chrome://inspect to debug. ****\" && node --inspect ./dist/server",
-    "test": "jest"
+    "test": "jest",
+    "build": "export NODE_ENV=production && rm -rf ./dist && webpack -p --config ./config/webpack.config.js"
   }
 }

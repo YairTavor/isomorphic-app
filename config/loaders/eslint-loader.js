@@ -1,5 +1,6 @@
 const path = require('path');
 const codeframeFormmatter = require('eslint-codeframe-formatter');
+const isProd = process.env.NODE_ENV === 'production';
 
 module.exports =  {
     enforce: 'pre',
@@ -8,9 +9,10 @@ module.exports =  {
     use: {
         loader: 'eslint-loader',
         options: {
-            cache: true,
+            cache: !isProd,
             configFile: path.resolve(__dirname, '../eslintrc.js'),
-            formatter: codeframeFormmatter
+            formatter: codeframeFormmatter,
+            failOnError: isProd,
         }
     }
 };

@@ -1,7 +1,6 @@
 // you can use this site to adjust the file:  http://rapilabs.github.io/eslintrc-generator/
 
 module.exports = {
-    extends: ['eslint:recommended'],
     parser: 'babel-eslint',
     parserOptions: {
         ecmaVersion: 8,
@@ -19,6 +18,7 @@ module.exports = {
     /*globals: {
 
      },*/
+    extends: ['eslint:recommended'],
     rules: {
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",

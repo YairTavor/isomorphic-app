@@ -1,5 +1,5 @@
 /**
- * This is a server code loader that remove "import" request for assets, such as scss files wich should not be
+ * This is a server code loader that remove "import" request for assets, such as scss files which should not be
  * imported in the server.
  */
 
