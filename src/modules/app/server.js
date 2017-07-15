@@ -1,5 +1,5 @@
 /*eslint-disable no-console*/
-
+import colors from 'colors';
 import path from 'path';
 import fs from 'fs';
 import Express from 'express';
@@ -12,7 +12,7 @@ import Store from './store';
 import App from './App';
 import routes from './routes';
 
-let indexHtml = fs.readFileSync(path.resolve(__dirname, 'client/index.html'), 'utf8');
+const indexHtml = fs.readFileSync(path.resolve(__dirname, 'client/index.html'), 'utf8');
 const app = Express();
 const port = 8080;
 
@@ -45,7 +45,7 @@ function handleRender(req, res) {
             const context = {};
 
             // Render the component to a string
-            let html = renderToString(
+            const html = renderToString(
                 <StaticRouter
                     location={req.url}
                     context={context}>
@@ -80,4 +80,4 @@ app.use('/public', Express.static(path.join(__dirname, 'client/public')));
 // This is fired every time the server side receives a request
 app.use(handleRender);
 app.listen(port);
-console.log(`Server started, listening on http://localhost:${port}`);
+console.log(colors.blue(`Server started, listening on http://localhost:${port}`));

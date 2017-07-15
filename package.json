@@ -10,6 +10,7 @@
     "babel-preset-env": "^1.6.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.2.0",
     "eslint-codeframe-formatter": "^1.0.2",
@@ -34,9 +35,9 @@
     "webpack-node-externals": "^1.6.0"
   },
   "scripts": {
-    "dev": "rm -rf ./dist && run-p watch:server watch:webpack",
-    "watch:server": "nodemon ./dist/server",
-    "watch:webpack": "webpack --config ./config/webpack.dev.js --watch",
+    "dev": "rm -rf ./dist && run-p watch:webpack watch:server",
+    "watch:server": "sleep 5 && nodemon ./dist/server",
+    "watch:webpack": "webpack --config ./config/webpack.dev.js --display errors-only --watch",
     "debug": "rm -rf ./dist && webpack --config ./config/webpack.dev.js && echo \"**** Open chrome browser and go to chrome://inspect to debug. ****\" && node --inspect ./dist/server"
   }
 }

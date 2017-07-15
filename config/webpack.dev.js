@@ -1,11 +1,12 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 const jsLoader = require('./loaders/js-loader');
 const scssLoader = require('./loaders/scss-loader');
+const removeAssetLoader = require('./loaders/remove-assets-loader');
 const eslintLoader = require('./loaders/eslint-loader');
 const extractScssPlugin = require('./plugins/extract-scss-plugin');
 const htmlPlugin = require('./plugins/html-plugin');
-const nodeExternals = require('webpack-node-externals');
-const removeAssetLoader = require('./loaders/remove-assets-loader');
+const copyPublicFilePlugin = require('./plugins/copy-public-files');
 
 const client = {
     entry: {
@@ -24,6 +25,7 @@ const client = {
         ]
     },
     plugins: [
+        copyPublicFilePlugin,
         extractScssPlugin,
         htmlPlugin
     ]
