@@ -1,6 +1,7 @@
 const path = require('path');
 const jsLoader = require('./loaders/js-loader');
 const scssLoader = require('./loaders/scss-loader');
+const eslintLoader = require('./loaders/eslint-loader');
 const extractScssPlugin = require('./plugins/extract-scss-plugin');
 const htmlPlugin = require('./plugins/html-plugin');
 const nodeExternals = require('webpack-node-externals');
@@ -18,7 +19,8 @@ const client = {
     module: {
         rules: [
             jsLoader,
-            scssLoader
+            scssLoader,
+            eslintLoader
         ]
     },
     plugins: [
@@ -45,7 +47,8 @@ const server = {
     module: {
         rules: [
             jsLoader,
-            removeAssetLoader
+            eslintLoader,
+            removeAssetLoader,
         ]
     },
     plugins: []

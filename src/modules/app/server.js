@@ -1,6 +1,7 @@
+/*eslint-disable no-console*/
+
 import path from 'path';
 import fs from 'fs';
-import {Buffer} from 'buffer'
 import Express from 'express';
 import React from 'react';
 import {renderToString} from 'react-dom/server';
@@ -68,10 +69,10 @@ function handleRender(req, res) {
                 res.send(renderFullPage(html, preloadedState));
             }
         })
-        .catch( err => {
+        .catch( () => {
             res.end(500);
         });
-};
+}
 
 //Serve static files
 app.use('/public', Express.static(path.join(__dirname, 'client/public')));

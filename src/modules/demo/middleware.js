@@ -1,5 +1,6 @@
 import {types} from './actions';
 
+// eslint-disable-next-line no-unused-vars
 export default store => next => action => {
     if(action.type === types.DEMO_GET_DATA){
         // must return promise form action for the router to work properly on the server
