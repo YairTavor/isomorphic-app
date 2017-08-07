@@ -30,10 +30,15 @@
 ## How to use?
 * For development environment, run
   ```
-  yarn dev
+  yarn start
   ```
   This will fire up webpack, and nodemon that will recompile and restart
   the server on every change.
+  Alternatively, you can start the app using
+  ```
+  yarn debug
+  ```
+  to enter server debugging mode.
 * For testing, run
   ```
   yarn test

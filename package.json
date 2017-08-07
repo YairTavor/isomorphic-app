@@ -40,13 +40,19 @@
     "webpack-node-externals": "^1.6.0"
   },
   "babel": {
-    "presets": ["env", "stage-0", "react"]
+    "presets": [
+      "env",
+      "stage-0",
+      "react"
+    ]
   },
   "jest": {
-    "transform": {".*": "./node_modules/jest-css-modules"}
+    "transform": {
+      ".*": "./node_modules/jest-css-modules"
+    }
   },
   "scripts": {
-    "dev": "rm -rf ./dist && run-p watch:webpack watch:server",
+    "start": "rm -rf ./dist && run-p watch:*",
     "watch:server": "sleep 5 && nodemon ./dist/server",
     "watch:webpack": "webpack --config ./config/webpack.config.js --display errors-only --watch",
     "debug": "rm -rf ./dist && webpack --config ./config/webpack.dev.js && echo \"**** Open chrome browser and go to chrome://inspect to debug. ****\" && node --inspect ./dist/server",
