@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {actions} from './actions';
+import Layout from '../common/components/layout';
 import SubDemo from './sub-demo';
 import './index.scss';
 
@@ -14,11 +15,13 @@ class Demo extends React.Component {
 
     render() {
         return (
-            <div className="demo">
-                <h1>Demo 1</h1>
-                <SubDemo />
-                <div>data: { this.props.data }</div>
-            </div>
+            <Layout>
+                <div className="demo">
+                    <h1>Demo 1</h1>
+                    <SubDemo />
+                    <div>data: { this.props.data }</div>
+                </div>
+            </Layout>
         )
     }
 }

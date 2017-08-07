@@ -1,0 +1,32 @@
+@import '../scss/colors.scss';
+
+body, html {
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout__header {
+  background: $gray;
+  padding: 5px 10px;
+  color: $white;
+  font-size: 24px;
+
+}
+
+.layout__body {
+  flex: 1 1 auto;
+  padding: 10px;
+}
+
+.layout__footer {
+  background: $light-gray;
+  text-align: center;
+  font-size: 13px;
+  padding: 5px;
+}
